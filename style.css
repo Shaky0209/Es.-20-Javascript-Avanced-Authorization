@@ -1,0 +1,25 @@
+.bottom{
+    position: absolute;
+    bottom: 10px;
+}
+
+.img-back{
+    height: 400px;
+    background-image: url(searchImage.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.input-group{
+    width: 60vw;
+}
+
+.form-control{
+    font-size: 16pt;
+    text-align: center;
+}
+
+#basic-addon2{
+    font-size: 16pt;
+    cursor: pointer;
+}
