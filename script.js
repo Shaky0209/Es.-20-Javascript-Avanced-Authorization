@@ -2,8 +2,6 @@ const node = document.querySelector(".content");
 const searchBtn = document.querySelector("#basic-addon2");
 const input = document.querySelector(".form-control");
 
-
-
 const seachFunc = ()=>{
     node.innerHTML = "";
     const search = document.querySelector(".form-control").value;
@@ -31,6 +29,9 @@ const seachFunc = ()=>{
         paragraph.innerText = element.alt;
 
         let button = document.createElement("button");
+        button.setAttribute("type", "button");
+        button.setAttribute("data-bs-toggle", "modal");
+        button.setAttribute("data-bs-target", "#exampleModal");
         button.classList.add("btn", "btn-primary", "bottom");
         button.innerText = "Dettaglio";
 
@@ -39,8 +40,17 @@ const seachFunc = ()=>{
         card.appendChild(button);
         cardCont.appendChild(card);
         
+        let modalBody = document.querySelector(".modal-body");
+        button.addEventListener("click", (event)=>{
+            modalBody.innerHTML = "";
+            let object = event.target.parentNode.cloneNode(true);
+            const btnObj = object.querySelector("button");
+            btnObj.remove();
+            modalBody.appendChild(object);
+        });
         return cardCont;
     });
+    
     cards.forEach(element => {
         node.appendChild(element);
     });
